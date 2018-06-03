@@ -59,6 +59,7 @@ public class CustomerBean implements Serializable{
     public String doBorrar(Integer idCliente){
         Customer cliente = this.customerFacade.find(idCliente);
         this.customerFacade.remove(cliente);
+        this.init();
         return "index";
     }
     
