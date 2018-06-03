@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h1>Crear cliente nuevo</h1>
+       <h:form>   
+            <table>
+                <tr>
+                    <td>NAME:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.name}"/></td>                
+                </tr>
+                <tr>
+                    <td>EMAIL:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.email}"/></td>                    
+                </tr>
+                <tr>
+                    <td>ADDRESS:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.addressline1}"/>
+                        <h:inputText value="#{customerCrearBean.cliente.addressline2}"/>
+                    </td>                 
+                </tr>
+                <tr>
+                    <td>CITY:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.city}"/></td>                    
+                </tr>
+                <tr>
+                    <td>PHONE:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.phone}"/></td>                    
+                </tr>
+                <tr>
+                    <td>FAX:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.fax}"/></td>                    
+                </tr>                
+                <tr>
+                    <td>MICROMARKET:</td>
+                    <td><h:selectOneMenu value="#{customerCrearBean.supermercadoSeleccionado}">
+                            <f:selectItems value="#{customerCrearBean.listaSupermercados}" var="supermercado"
+                                           itemValue="#{supermercado.zipCode}" itemLabel="#{supermercado.zipCode}"/>
+                        </h:selectOneMenu></td>             
+                </tr>                
+                <tr>
+                    <td>DISCOUNT CODE:</td>
+                    <td><h:selectOneMenu value="#{customerCrearBean.descuentoSeleccionado}">
+                            <f:selectItems value="#{customerCrearBean.listaDescuentos}" var="descuento"
+                                           itemValue="#{descuento.discountCode}" itemLabel="#{descuento.rate}"/>
+                        </h:selectOneMenu></td>                   
+                </tr>                
+            </table>
+           <h:commandButton value="Enviar" action="#{customerCrearBean.doGuardar()}"/>
+        </h:form>
+    </h:body>
+</html>
+
